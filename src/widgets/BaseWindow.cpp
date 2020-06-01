@@ -805,7 +805,7 @@ bool BaseWindow::handleNCCALCSIZE(MSG *msg, long *result)
             ncp->lppos->flags |= SWP_NOREDRAW;
             RECT *clientRect = &ncp->rgrc[0];
 
-            clientRect->top -= 1;
+            clientRect->top -= (this->isNotMinimizedOrMaximized_) ? 1 : -1;
         }
 
         *result = 0;
